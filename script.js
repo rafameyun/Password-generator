@@ -1,5 +1,5 @@
-const pallet = document.getElementById("pallet");
-const  copyEl = document.getElementById("copy");
+const palletEl = document.getElementById("pallet");
+const copyEl = document.getElementById("copy");
 const lenEl = document.getElementById("len");
 const upperEl = document.getElementById("upper");
 const lowerEL = document.getElementById("lower");
@@ -26,4 +26,30 @@ function getNumber() {
 
 function getSymbol() {
     return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+function generatePassword() {
+    const len = lenEl.value;
+
+    let password = "";
+
+    if (upperEl.checked) {
+        password += getUppercase();
+    }
+    if (lowerEl.checked) {
+        password += getLowercase();
+    }
+    if (numberEl.checked) {
+        password += getNumber();
+    }
+    if (symbolEl.checked) {
+        password += getSymbol();
+    }
+
+    for (let i = password.length; i < len; i++) {
+        const x = generateX();
+        password += x;
+    }
+
+    palletEl.innerText = password;
 }
