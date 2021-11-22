@@ -2,7 +2,7 @@ const palletEl = document.getElementById("pallet");
 const copyEl = document.getElementById("copy");
 const lenEl = document.getElementById("len");
 const upperEl = document.getElementById("upper");
-const lowerEL = document.getElementById("lower");
+const lowerEl = document.getElementById("lower");
 const numberEl = document.getElementById("number");
 const symbolEl = document.getElementById("symbol");
 const generateEl = document.getElementById("generate");
@@ -13,7 +13,7 @@ const numbers = "0123456789";
 const symbols = "!@#$%^&*()_-=+.";
 
 function getLowercase() {
-    return lowerLetters[Math.floor(Math.randon() * lowerLetters.length)];
+    return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
 }
 
 function getUppercase() {
@@ -59,7 +59,7 @@ function generateX() {
     if (upperEl.checked) {
         xs.push(getUppercase());
     }
-    if (lowerEL.checked) {
+    if (lowerEl.checked) {
         xs.push(getLowercase());
     }
     if (numberEl.checked) {
@@ -73,3 +73,21 @@ function generateX() {
 
     return xs[Math.floor(Math.random() * xs.length)];
 }
+
+generateEl.addEventListener("click", generatePassword);
+
+copyEl.addEventListener("click", () => {
+    const textarea = document.createElement("textarea");
+    const password = palletEl.innerText;
+
+    if (!password) {
+        return;
+    }
+
+    textarea.value = password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+    alert("Password copied to clipboard");
+});

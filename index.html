@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/main.css" defer>
+    <script src="script.js" defer></script>
 
 <!-- META AND SEO TAGS -->
     <link rel="canonical" href="https://rafameyun.github.io" />
@@ -45,15 +45,17 @@
 
 </head>
 <body>
-   <div class="pallet-container">
-            <div class="pallew-header">
-                <span class="pallet">l823Zs78#Css09@</span>
-                <button class="copy">Copy</button>
+    <div class="pallet-container">
+        <div class="pallet-header">
+            <div class="pallet">
+                <span id="pallet">Select the specifications</span>
+                <button id="copy">Copy</button>
             </div>
+        </div>
         <div class="pallet-body">
             <div class="form-control">
                 <label for="len">Password Length</label>
-                <input id="len" value="15" type="number" min="2" max="30" />
+                <input id="len" value="14" type="number" min="2" max="30" />
             </div>
             <div class="form-control">
                 <label for="upper">Contain Uppercase Letters</label>
@@ -75,6 +77,6 @@
                 Generate Password
             </button>
         </div>
-    </div> 
+    </div>
 </body>
 </html>
